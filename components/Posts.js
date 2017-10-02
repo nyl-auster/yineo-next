@@ -4,7 +4,12 @@ const Posts = (props) => (
   <div>
     <ul>
       {props.data.postsQuery.results.map(post => {
-        return <li>{post.title}</li>
+        return (
+          <li>
+          <h2>{post.title}</h2>
+          <div dangerouslySetInnerHTML={{__html: post.body}}></div>
+          </li>
+          )
       })}
       <li>Well, Hello ?</li>
     </ul>
@@ -22,6 +27,7 @@ query {
         alias
       }
       ... on NodePost {
+        body: fieldBody
         image: fieldImage {
           derivative(style: medium) {
             url
