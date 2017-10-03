@@ -16,6 +16,7 @@ query {
   postsQuery(pageSize: 20) {
     count
     results {
+      uuid: entityUuid
       created: entityCreated
       title: entityLabel
       url: entityUrl {

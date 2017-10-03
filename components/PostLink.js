@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const PostLink = ({post}) => (
   <li>
-    <Link href={`/blog${post.url.alias}`}>
+    <Link as={`blog${post.url.alias}`} href={`/post?uuid=${post.uuid}`}>
       <a>{post.title}</a>
     </Link>
   </li>
