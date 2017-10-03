@@ -1,17 +1,12 @@
 import { gql, graphql } from 'react-apollo'
+import PostTeaser from './PostTeaser'
 
 const Posts = (props) => (
   <div>
     <ul>
       {props.data.postsQuery.results.map(post => {
-        return (
-          <li>
-          <h2>{post.title}</h2>
-          <div dangerouslySetInnerHTML={{__html: post.body}}></div>
-          </li>
-          )
+        return <li> <PostTeaser post={post} /> </li>
       })}
-      <li>Well, Hello ?</li>
     </ul>
   </div>
 )
@@ -27,7 +22,7 @@ query {
         alias
       }
       ... on NodePost {
-        body: fieldBody
+        teaser: fieldTeaser
         image: fieldImage {
           derivative(style: medium) {
             url
