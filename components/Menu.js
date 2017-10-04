@@ -2,13 +2,13 @@ import { Link, Router } from '../routes'
 
 const Menu = () => (
   <div>
-    <Link route='/'>
+    <Link route='home'>
       <a>Accueil</a>
     </Link>
-    <Link route='/blog'>
+    <Link route='blog'>
       <a>Blog</a>
     </Link>
-    <Link route='/contact'>
+    <Link route='contact'>
       <a>Contact</a>
     </Link>
   </div>

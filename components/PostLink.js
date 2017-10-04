@@ -1,11 +1,11 @@
-import Link from 'next/link'
+import { Link, Router } from '../routes'
 
-const PostLink = ({ post }) => (
+const PostLink = ({ post }) => 
   <div>
-    <Link prefetch as={`blog${post.url.alias}`} href={`/post?uuid=${post.uuid}`}>
+    <Link route='post' params={{slug: post.url.alias.replace('/', '')}}>
       <a>Lire plus</a>
     </Link>
   </div>  
-)
+
 
 export default PostLink
