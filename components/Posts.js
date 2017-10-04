@@ -1,15 +1,12 @@
 import { gql, graphql } from 'react-apollo'
-import PostTeaser from './PostTeaser'
+import PostTeaserList from './PostTeaserList'
 
-const Posts = (props) => (
+const Posts = ({data}) => 
   <div>
-    <ul>
-      {props.data.postsQuery.results.map(post => {
-        return <li> <PostTeaser post={post} /> </li>
-      })}
-    </ul>
+    <h1>Dernier billets</h1>
+    { !data.loading && <PostTeaserList posts={data.postsQuery.results} /> }
   </div>
-)
+
 
 const allPostsQuery = gql`
 query {
