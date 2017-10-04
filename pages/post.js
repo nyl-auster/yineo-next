@@ -1,12 +1,14 @@
 import Layout from '../components/Layout'
+import { gql, graphql } from 'react-apollo'
+import withData from '../lib/withData'
+import PostFull from '../components/PostFull'
 
 const Post = (props) => (
   <Layout>
     <div>
-    <h1>{props.url.query.title}</h1>
-      Je suis la page de post
+      <PostFull slug={props.url.query.slug} />
     </div>
   </Layout>
 )
 
-export default Post
+export default withData(Post)
