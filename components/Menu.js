@@ -2,13 +2,13 @@ import Link from 'next/link'
 
 const Menu = () => (
   <div>
-    <Link href="/">
+    <Link prefetch href="/">
       <a>Accueil</a>
     </Link>
-    <Link href="/blog">
+    <Link prefetch href="/blog">
       <a>Blog</a>
     </Link>
-    <Link href="/contact">
+    <Link prefetch href="/contact">
       <a>Contact</a>
     </Link>
   </div>
