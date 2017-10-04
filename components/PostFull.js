@@ -6,8 +6,8 @@ const PostFull = ({ data }) => {
   if (post) {
     return (
       <div>
-        <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
+        <h1 className="title is-1">{post.title}</h1>
+        <div className="content" dangerouslySetInnerHTML={{ __html: post.body }}></div>
       </div>
     )
   }

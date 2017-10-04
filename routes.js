@@ -4,3 +4,4 @@ routes
 .add('home', '/', 'index')
 .add('blog', '/blog', 'postList')
 .add('post', '/blog/:slug', 'post')
+.add('contact', '/contact', 'contact')

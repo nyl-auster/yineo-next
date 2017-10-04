@@ -2,8 +2,9 @@ import Layout from '../components/Layout'
 
 const Contact = () => (
   <Layout>
-    <div>
-      <p>Développeur freelance à Nantes, je suis spécialisé dans le JavaScript et plus spécifiquement React, Next, Vue.js et Nuxt.js. </p>
+    <div className="section">
+      <p> Vous pouvez le contacter à l'adresse suivante </p>
+      <div class="button">yann@yineo.fr</div>
     </div>
   </Layout>
 )

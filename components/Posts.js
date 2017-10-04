@@ -3,7 +3,7 @@ import PostTeaserList from './PostTeaserList'
 
 const Posts = ({ data }) =>
   <div>
-    <h1>Dernier billets</h1>
+    <h1 class="title is-1">Dernier billets de blog</h1>
     { !data.loading ?
       <PostTeaserList posts={data.postsQuery.results} /> :
       'Chargement ...'

@@ -4,7 +4,9 @@ import withData from '../lib/withData'
 
 const Blog = (props) => (
   <Layout>
-    <Posts />
+    <div className="section">
+      <Posts />
+    </div>
   </Layout>
 )
 

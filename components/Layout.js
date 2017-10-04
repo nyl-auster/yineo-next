@@ -8,10 +8,14 @@ const Layout = ({ children }) => (
     <Head>
       <title>YINEO - développement React, Next.js, Vue.js et Nuxt.js</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <link rel="stylesheet" type="text/css" href="/static/css/bulma-5.1.css" />
+      <link rel="stylesheet" type="text/css" href="/static/css/app.css" />
     </Head>
     <Header />
     <Menu />
-    {children}
+    <div className="container">
+      {children}
+    </div>
   </div>
 )
 

@@ -1,7 +1,7 @@
 const Header = () => (
-  <div>
+  <div className="container">
     <div className="title">YANN BOISSELIER</div>
-    <div className="subtitle">Développeur React et Next.js à Nantes </div>
+    <div className="subtitle">Développeur React, Next.js, Vue et Nuxt.js à Nantes </div>
   </div>
 )
 
