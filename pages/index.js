@@ -1,4 +1,13 @@
 import Layout from '../components/Layout'
+import Router from 'next/router'
+
+Router.onRouteChangeStart = url => {
+  console.log('App is changing to: ', url)
+}
+
+Router.onRouteChangeComplete = url => {
+  console.log('App completed routing to : ', url)
+}
 
 const Index = () => (
   <Layout>
