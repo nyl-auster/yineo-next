@@ -1,5 +1,5 @@
-import Layout from '../components/Layout'
-import { gql, graphql } from 'react-apollo'
+import { graphql } from 'react-apollo'
+import postByPathQuery from '../apolloQueries/postByPathQuery'
 
 const PostFull = ({ data }) => {
   const post = data.route ? data.route.entity : null
@@ -16,34 +16,7 @@ const PostFull = ({ data }) => {
   )
 }
 
-const postQuery = gql`
-query route($path: String!) {
-  route(path: $path) {
-    alias
-    routed
-    path
-    entity {
-      title: entityLabel
-      ... on NodePost {
-        body: fieldBody
-        image: fieldImage {
-          derivative(style:large) {
-            url
-          }
-        }
-        tags: fieldTags {
-          name: entityLabel
-          url: entityUrl {
-            alias
-          }
-        }
-      }
-    }
-  }
-}
-`
-
-export default graphql(postQuery, {
+export default graphql(postByPathQuery, {
   options: (props) => ({
     variables: { path: '/' + props.slug }
   })
