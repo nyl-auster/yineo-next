@@ -2,13 +2,13 @@ import { Link, Router } from '../routes'
 
 const Menu = () => (
   <div className="container">
-    <Link route='home'>
+    <Link prefetch route='home'>
       <a>Accueil </a>
     </Link>
-    <Link route='blog'>
+    <Link prefetch route='blog'>
       <a>Blog </a>
     </Link>
-    <Link route='contact'>
+    <Link prefetch route='contact'>
       <a>Contact </a>
     </Link>
   </div>
