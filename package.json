@@ -4,18 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "node_modules/.bin/next",
+    "build": "node_modules/.bin/next build",
+    "start": "node_modules/.bin/next start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "graphql": "^0.11.6",
-    "isomorphic-fetch": "^2.2.1",
-    "next": "^4.0.0-beta.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-apollo": "^1.4.16",
-    "react-dom": "^16.0.0"
+    "graphql": "0.11.6",
+    "isomorphic-fetch": "2.2.1",
+    "next": "4.0.0-beta.2",
+    "prop-types": "15.6.0",
+    "react": "16.0.0",
+    "react-apollo": "1.4.16",
+    "react-dom": "16.0.0"
   }
 }
