@@ -1,12 +1,14 @@
 import { gql, graphql } from 'react-apollo'
 import PostTeaserList from './PostTeaserList'
 
-const Posts = ({data}) => 
+const Posts = ({ data }) =>
   <div>
     <h1>Dernier billets</h1>
-    { !data.loading && <PostTeaserList posts={data.postsQuery.results} /> }
+    { !data.loading ?
+      <PostTeaserList posts={data.postsQuery.results} /> :
+      'Chargement ...'
+    }
   </div>
-
 
 const allPostsQuery = gql`
 query {
@@ -39,4 +41,4 @@ query {
 }
 `
 
-export default graphql(allPostsQuery, {})(Posts)
+export default graphql(allPostsQuery)(Posts)
