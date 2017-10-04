@@ -1,1 +1,0 @@
-export default (props) => <div>{console.log(props)}Erreur</div>

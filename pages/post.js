@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
 
-const Post = ({url}) => (
+const Post = (props) => (
   <Layout>
     <div>
-    <h1>{url.query.title}</h1>
+      {console.log(url)}
+    <h1>{props.url.query.title}</h1>
       Je suis la page de post
     </div>
   </Layout>
