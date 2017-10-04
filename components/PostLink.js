@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
-const PostLink = ({post}) => (
-  <li>
-    <Link as={`${post.url.alias}`} prefetch href={`/post?uuid=${post.uuid}`}>
-      <a>{post.title}</a>
+const PostLink = ({ post }) => (
+  <div>
+    <Link prefetch as={`blog${post.url.alias}`} href={`/post?uuid=${post.uuid}`}>
+      <a>Lire plus</a>
     </Link>
-  </li>
+  </div>  
 )
 
 export default PostLink
