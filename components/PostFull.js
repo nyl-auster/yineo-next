@@ -1,4 +1,6 @@
+
 import { graphql } from 'react-apollo'
+import Loader from './Loader'
 import postByPathQuery from '../apolloQueries/postByPathQuery'
 
 const PostFull = ({ data }) => {
@@ -12,7 +14,7 @@ const PostFull = ({ data }) => {
     )
   }
   return (
-    <div> chargement ...</div>
+    <Loader />
   )
 }
 

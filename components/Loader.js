@@ -1,6 +1,6 @@
 const Loader = () => (
   <div>
-    Chargement en cours 
+    On est en train de chercher les données, on arrive ...
   </div>
 )
 
