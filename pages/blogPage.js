@@ -1,6 +1,5 @@
 import Layout from '../components/Layout'
 import PostList from '../components/PostList'
-import withData from '../lib/withData'
 import Loader from '../components/Loader'
 import initApollo from '../lib/initApollo'
 import allPostsQuery from '../apolloQueries/allPostsQuery'
@@ -28,4 +27,4 @@ BlogPage.getInitialProps = (params) => {
   .then(r => ({data: r.data}))
 }
 
-export default withData(BlogPage)
+export default BlogPage

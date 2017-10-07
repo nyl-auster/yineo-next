@@ -3,7 +3,6 @@ import Loader from './Loader'
 import Pagination from './Pagination'
 
 const PostList = ({ data }) => {
-  console.log(data)
   return (
     <div>
       <h1 className="title is-1">Dernier billets de blog</h1>
