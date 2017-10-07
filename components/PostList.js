@@ -2,52 +2,13 @@ import { graphql } from 'react-apollo'
 import allPostsQuery from '../apolloQueries/allPostsQuery'
 import PostAsTeaser from './PostAsTeaser'
 import Loader from './Loader'
+import Pagination from './Pagination'
 
-class Pagination extends React.Component {
-
-  getNumberOfPage () {
-    return Math.ceil(this.props.totalOfResults / this.props.resultsByPage)
-  }
-
-  getPagesAsArray () {
-    const numberOfPage = this.getNumberOfPage()
-    let pages = []
-    for (let i = 0; i <= numberOfPage; i++) {
-      pages.push(i)
-    }
-    return pages;
-  }
-
-  render () {
-    const pages = this.getPagesAsArray()
-    return (
-      <nav className="pagination" role="navigation" aria-label="pagination">
-        <ul className="pagination-list">
-          {pages.map(page =>
-            <li key={page}>
-              <a className="pagination-link" href="">{page + 1}</a>
-            </li>
-          )}
-        </ul>
-        <style jsx>{`
-        ul {
-          list-style-type: none
-        }
-    `}</style>
-      </nav>
-    )
-  }
-}
-
-Pagination.defaultProps = {
-  totalOfResults: null,
-  resultsByPage: 10,
-  numberOfPage: null,
-  currentPage: 1
+function onGoToPage(page) {
+  alert('event override ' + page)
 }
 
 const PostList = ({ data, loadMore }) => {
-  console.log(data)
   if (data.loading) {
     return <Loader />
   }
@@ -61,7 +22,10 @@ const PostList = ({ data, loadMore }) => {
             <PostAsTeaser post={post} />
           </div>
         )}
-        <Pagination totalOfResults={data.postsQuery.count} />
+        <Pagination 
+        route='blog'
+        onGoToPage={() => onGoToPage(page)}
+        totalOfResults={data.postsQuery.count} />
       </div>
     </div>
   )
@@ -73,10 +37,10 @@ export default graphql(allPostsQuery, {
   }),
   props: ({ data }) => ({
     data,
-    loadMore: () => {
+    loadMore: (page) => {
       return data.fetchMore({
         variables: {
-          page: 1
+          page: page
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) {
