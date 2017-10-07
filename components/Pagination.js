@@ -10,13 +10,14 @@ class Pagination extends React.Component {
   }
 
   getNumberOfPage () {
-    return Math.ceil(this.props.totalOfResults / this.props.resultsByPage)
+    const total = Math.ceil(this.props.totalOfResults / this.props.resultsByPage)
+    return total
   }
 
   getPagesAsArray () {
     const numberOfPage = this.getNumberOfPage()
     let pages = []
-    for (let i = 0; i <= numberOfPage; i++) {
+    for (let i = 1; i <= numberOfPage; i++) {
       pages.push(i)
     }
     return pages;
@@ -30,7 +31,7 @@ class Pagination extends React.Component {
           {pages.map(page =>
             <li key={page}>
               <Link route={this.props.route} params={{page}} prefetch href={this.props.route + '?page='+ page}>
-                <a className="pagination-link">{page + 1}</a>
+                <a className="pagination-link">{page}</a>
               </Link>
             </li>
           )}

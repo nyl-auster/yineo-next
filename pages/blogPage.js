@@ -3,6 +3,7 @@ import PostList from '../components/PostList'
 import Loader from '../components/Loader'
 import initApollo from '../lib/initApollo'
 import allPostsQuery from '../apolloQueries/allPostsQuery'
+import config from '../next.config.js'
 
 const BlogPage = ({ data }) => {
   if (data.loading) {
@@ -23,7 +24,7 @@ BlogPage.getInitialProps = (params) => {
   return apollo
   .query({
     query: allPostsQuery,
-    variables: { page: (page - 1), pageSize: 10 }
+    variables: { page: (page - 1), pageSize: config.postsPerPage }
   })
   .then(r => ({data: r.data}))
 }
