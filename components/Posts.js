@@ -1,6 +1,6 @@
 import { graphql } from 'react-apollo'
 import allPostsQuery from '../apolloQueries/allPostsQuery'
-import PostTeaser from './PostTeaser'
+import PostAsTeaser from './PostAsTeaser'
 import Loader from './Loader'
 
 const Posts = ({ data }) => {
@@ -13,7 +13,7 @@ const Posts = ({ data }) => {
       <div className="posts content">
         {data.postsQuery.results.map(post =>
           <div key={post.uuid}>
-            <PostTeaser post={post} />
+            <PostAsTeaser post={post} />
           </div>
         )}
       </div>

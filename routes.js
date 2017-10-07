@@ -1,7 +1,7 @@
 const routes = module.exports = require('next-routes')()
 
 routes
-.add({ name: 'home', pattern:'/', page: 'index' })
-.add({ name: 'blog', pattern: '/blog', page: 'blog' })
-.add({ name: 'post', pattern: '/blog/:slug', page: 'post' })
-.add({ name: 'contact', pattern: '/contact', page: 'contact' })
+.add({ name: 'homePage', pattern:'/', page: 'homePage' })
+.add({ name: 'blogPage', pattern: '/blog', page: 'blogPage' })
+.add({ name: 'postPage', pattern: '/blog/:slug', page: 'postPage' })
+.add({ name: 'contactPage', pattern: '/contact', page: 'contactPage' })

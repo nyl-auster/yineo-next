@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import Posts from '../components/Posts'
 import withData from '../lib/withData'
 
-const Blog = (props) => (
+const BlogPage = (props) => (
   <Layout>
     <div className="section">
       <Posts />
@@ -10,4 +10,4 @@ const Blog = (props) => (
   </Layout>
 )
 
-export default withData(Blog)
+export default withData(BlogPage)

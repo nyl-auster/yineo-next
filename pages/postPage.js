@@ -1,14 +1,14 @@
 import Layout from '../components/Layout'
 import { gql, graphql } from 'react-apollo'
 import withData from '../lib/withData'
-import PostFull from '../components/PostFull'
+import PostAsFull from '../components/PostAsFull'
 
-const Post = (props) => (
+const PostPage = (props) => (
   <Layout>
     <div>
-      <PostFull slug={props.url.query.slug} />
+      <PostAsFull slug={props.url.query.slug} />
     </div>
   </Layout>
 )
 
-export default withData(Post)
+export default withData(PostPage)

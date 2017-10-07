@@ -1,14 +1,14 @@
-import { Link, Router } from '../routes'
+import { Link } from '../routes'
 
 const Menu = () => (
   <div className="container">
-    <Link prefetch route='home'>
+    <Link prefetch route='homePage'>
       <a>Accueil </a>
     </Link>
-    <Link prefetch route='blog'>
+    <Link prefetch route='blogPage'>
       <a>Blog </a>
     </Link>
-    <Link prefetch route='contact'>
+    <Link prefetch route='contactPage'>
       <a>Contact </a>
     </Link>
   </div>

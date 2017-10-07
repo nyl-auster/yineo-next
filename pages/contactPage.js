@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 
-const Contact = () => (
+const ContactPage = () => (
   <Layout>
     <div className="section">
       <p> Vous pouvez le contacter à l'adresse suivante </p>
@@ -9,4 +9,4 @@ const Contact = () => (
   </Layout>
 )
 
-export default Contact
+export default ContactPage
