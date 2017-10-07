@@ -1,7 +1,8 @@
 import { gql } from 'react-apollo'
+
 export default gql`
-query ($pageSize: Int!) {
-  postsQuery(pageSize: $pageSize) {
+query ($page: Int!, $pageSize: Int!) {
+  postsQuery(page: $page, pageSize: $pageSize) {
     count
     results {
       uuid: entityUuid
@@ -23,7 +24,6 @@ query ($pageSize: Int!) {
             alias
           }
         }
-        teaser: fieldTeaser
       }
     }
   }
