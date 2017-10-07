@@ -3,7 +3,7 @@ import allPostsQuery from '../apolloQueries/allPostsQuery'
 import PostAsTeaser from './PostAsTeaser'
 import Loader from './Loader'
 
-const Posts = ({ data }) => {
+const PostList = ({ data }) => {
   if (data.loading) {
     return <Loader />
   }
@@ -25,4 +25,4 @@ export default graphql(allPostsQuery, {
   options: (props) => ({
     variables: { pageSize: 20 }
   })
-})(Posts)
+})(PostList)
