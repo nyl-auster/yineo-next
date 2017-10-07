@@ -18,11 +18,12 @@ const BlogPage = ({ data }) => {
 }
 
 BlogPage.getInitialProps = (params) => {
+  const page = params.query.page ? params.query.page : 1
   const apollo = initApollo()
   return apollo
   .query({
     query: allPostsQuery,
-    variables: { page: 0, pageSize: 10 }
+    variables: { page: (page - 1), pageSize: 10 }
   })
   .then(r => ({data: r.data}))
 }

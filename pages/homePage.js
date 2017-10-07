@@ -11,7 +11,7 @@ Router.onRouteChangeComplete = url => {
 }
 */
 
-const homePage = () => (
+const HomePage = () => (
   <Layout>
     <div className="section">
       <p><strong>Développeur freelance à Nantes</strong>, je suis spécialisé dans le JavaScript et plus spécifiquement <strong>React, Next, Vue.js et Nuxt.js.</strong> </p>
@@ -21,4 +21,6 @@ const homePage = () => (
   </Layout>
 )
 
-export default homePage
+
+
+export default HomePage

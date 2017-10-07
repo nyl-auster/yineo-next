@@ -13,13 +13,6 @@ class Pagination extends React.Component {
     return Math.ceil(this.props.totalOfResults / this.props.resultsByPage)
   }
 
-  goToPage (pageNumber) {
-    this.setState((prevState, props) => ({
-      currentPage: pageNumber
-    }))
-    this.props.onGoToPage(pageNumber)
-  }
-
   getPagesAsArray () {
     const numberOfPage = this.getNumberOfPage()
     let pages = []
@@ -36,8 +29,8 @@ class Pagination extends React.Component {
         <ul className="pagination-list">
           {pages.map(page =>
             <li key={page}>
-              <Link prefetch href={this.props.route + '?page='+ page}>
-                <a onClick={() => this.props.goToPage(page)} className="pagination-link" href="">{page + 1}</a>
+              <Link route={this.props.route} params={{page}} prefetch href={this.props.route + '?page='+ page}>
+                <a className="pagination-link">{page + 1}</a>
               </Link>
             </li>
           )}
@@ -58,9 +51,6 @@ Pagination.defaultProps = {
   numberOfPage: null,
   currentPage: 1,
   route: '/',
-  params: {},
-  // default onGoToPage event
-  onGoToPage: (page) => alert('go to page ' + page)
 }
 
 export default Pagination

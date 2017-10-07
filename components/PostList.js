@@ -12,6 +12,7 @@ const PostList = ({ data }) => {
             <PostAsTeaser post={post} />
           </div>
         )}
+        <Pagination totalOfResults={data.postsQuery.count} route="BlogPage" />
       </div>
     </div>
   )
