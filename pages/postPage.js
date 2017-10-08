@@ -18,7 +18,6 @@ const PostPage = ({ data }) => {
 }
 
 PostPage.getInitialProps = (params) => {
-  console.log(params)
   const apollo = initApollo()
   return apollo
     .query({
