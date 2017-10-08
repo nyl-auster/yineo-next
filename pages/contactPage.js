@@ -3,8 +3,9 @@ import Layout from '../components/Layout'
 const ContactPage = () => (
   <Layout>
     <div className="section">
-      <p> Vous pouvez me contacter à l'adresse suivante </p>
-      <div className="button">yann@yineo.fr</div>
+      <p> Vous pouvez me contacter à l'adresse suivante : </p>
+      <br />
+      <div><strong>yann@yineo.fr</strong></div>
     </div>
   </Layout>
 )
