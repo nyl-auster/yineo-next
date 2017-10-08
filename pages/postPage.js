@@ -2,6 +2,7 @@ import initApollo from '../lib/initApollo'
 import postByPathQuery from '../apolloQueries/postByPathQuery'
 import Layout from '../components/Layout'
 import PostAsFull from '../components/PostAsFull'
+import Loader from '../components/Loader'
 
 const PostPage = ({ data }) => {
   if (data.loading) {

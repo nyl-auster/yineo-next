@@ -7,7 +7,7 @@ const PostList = ({ data }) => {
   return (
     <div>
       <h1 className="title is-1">Dernier billets de blog</h1>
-      <Pagination resultsByPage={config.postsPerPage} totalOfResults={data.postsQuery.count} route="BlogPage" />
+      <Pagination resultsByPage={config.postsPerPage} totalOfResults={data.postsQuery.count} route="PostListPage" />
       <div className="posts content">
         {data.postsQuery.results.map(post =>
           <div key={post.uuid}>
@@ -15,7 +15,7 @@ const PostList = ({ data }) => {
           </div>
         )}
       </div>
-      <Pagination resultsByPage={config.postsPerPage} totalOfResults={data.postsQuery.count} route="BlogPage" />
+      <Pagination resultsByPage={config.postsPerPage} totalOfResults={data.postsQuery.count} route="PostListPage" />
     </div>
   )
 }

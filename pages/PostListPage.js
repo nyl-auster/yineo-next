@@ -5,7 +5,7 @@ import initApollo from '../lib/initApollo'
 import allPostsQuery from '../apolloQueries/allPostsQuery'
 import config from '../next.config.js'
 
-const BlogPage = ({ data }) => {
+const PostListPage = ({ data }) => {
   if (data.loading) {
     return <Loader />
   }
@@ -18,7 +18,7 @@ const BlogPage = ({ data }) => {
   )
 }
 
-BlogPage.getInitialProps = (params) => {
+PostListPage.getInitialProps = (params) => {
   const page = params.query.page ? params.query.page : 1
   const apollo = initApollo()
   return apollo
@@ -29,4 +29,4 @@ BlogPage.getInitialProps = (params) => {
   .then(r => ({data: r.data}))
 }
 
-export default BlogPage
+export default PostListPage

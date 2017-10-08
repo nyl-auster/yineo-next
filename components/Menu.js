@@ -5,7 +5,7 @@ const Menu = () => (
     <Link prefetch route='HomePage'>
       <a>Accueil </a>
     </Link>
-    <Link prefetch route='BlogPage'>
+    <Link prefetch route='PostListPage'>
       <a>Blog </a>
     </Link>
     <Link prefetch route='ContactPage'>
