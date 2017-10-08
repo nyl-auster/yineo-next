@@ -1,6 +1,5 @@
 import Layout from '../components/Layout'
 import PostList from '../components/PostList'
-import Loader from '../components/Loader'
 import initApollo from '../lib/initApollo'
 import postListByTagQuery from '../apolloQueries/postListByTagQuery'
 import tagByPathQuery from '../apolloQueries/tagByPathQuery'
@@ -11,13 +10,7 @@ class PostListPage extends React.Component {
 
   render () {
     const data = this.props.data
-    if (data.loading) {
-      return <Loader />
-    }
-    let titleSuffix = null
-    if (this.props.tag) {
-      titleSuffix = `classés ${this.props.tag.name}`
-    }
+    const titleSuffix = this.props.tag ? `classés ${this.props.tag.name}` : ''
     return (
       <Layout>
         <div className="section">
@@ -34,7 +27,6 @@ class PostListPage extends React.Component {
   }
 
   static async getInitialProps (url) {
-    console.log(url)
     const page = url.query.page ? url.query.page : 1
     const tagSlug = url.query.tag ? url.query.tag : null
     const apollo = initApollo()

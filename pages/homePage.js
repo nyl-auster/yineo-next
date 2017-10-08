@@ -1,15 +1,4 @@
 import Layout from '../components/Layout'
-import Router from 'next/router'
-
-/*
-Router.onRouteChangeStart = url => {
-  console.log('Route started: ', url)
-}
-
-Router.onRouteChangeComplete = url => {
-  console.log('Route completed routing to : ', url)
-}
-*/
 
 const HomePage = () => (
   <Layout>
@@ -23,7 +12,5 @@ const HomePage = () => (
     </div>
   </Layout>
 )
-
-
 
 export default HomePage
