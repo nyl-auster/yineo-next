@@ -25,6 +25,9 @@ class Pagination extends React.Component {
 
   render () {
     const pages = this.getPagesAsArray()
+    if (pages.length == 1) {
+      return null
+    }
     return (
       <nav className="pagination" role="navigation" aria-label="pagination">
         <ul className="pagination-list">

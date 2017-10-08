@@ -1,5 +1,4 @@
 import { gql } from 'react-apollo'
-
 export default gql`
 query ($page: Int!, $pageSize: Int!) {
   postsQuery: postsQuery(page: $page, pageSize: $pageSize) {

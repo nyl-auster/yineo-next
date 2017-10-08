@@ -1,5 +1,4 @@
 import { gql } from 'react-apollo'
-
 export default gql`
 query route($path: String!) {
   route(path: $path) {
