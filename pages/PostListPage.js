@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import PostList from '../components/PostList'
 import initApollo from '../lib/initApollo'
-import postListByTagQuery from '../apolloQueries/postListByTagQuery'
+import postListQuery from '../apolloQueries/postListQuery'
 import tagByPathQuery from '../apolloQueries/tagByPathQuery'
 import config from '../next.config.js'
 import { Link } from '../routes'
@@ -54,7 +54,7 @@ class PostListPage extends React.Component {
 
     // now list all posts referencing this tag
     const result = await apollo.query({
-      query: postListByTagQuery,
+      query: postListQuery,
       variables
     })
 
