@@ -2,8 +2,8 @@ import Layout from '../components/Layout'
 import PostList from '../components/PostList'
 import Loader from '../components/Loader'
 import initApollo from '../lib/initApollo'
-import allPostsQuery from '../apolloQueries/allPostsQuery'
 import config from '../next.config.js'
+import postListQuery from '../apolloQueries/postListQuery'
 
 const PostListPage = ({ data }) => {
   if (data.loading) {
@@ -12,7 +12,12 @@ const PostListPage = ({ data }) => {
   return (
     <Layout>
       <div className="section">
-        <PostList data={data} />
+        <h1 className="title is-1">Le blog</h1>
+        <PostList
+          posts={data.postsQuery.results}
+          postsTotal={data.postsQuery.count}
+          postsPerPage={config.postsPerPage}
+        />
       </div>
     </Layout>
   )
@@ -22,11 +27,14 @@ PostListPage.getInitialProps = (params) => {
   const page = params.query.page ? params.query.page : 1
   const apollo = initApollo()
   return apollo
-  .query({
-    query: allPostsQuery,
-    variables: { page: (page - 1), pageSize: config.postsPerPage }
-  })
-  .then(r => ({data: r.data}))
+    .query({
+      query: postListQuery,
+      variables: {
+        page: (page - 1),
+        pageSize: config.postsPerPage
+      }
+    })
+    .then(r => ({ data: r.data }))
 }
 
 export default PostListPage

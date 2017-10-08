@@ -1,5 +1,5 @@
 // next.config.js
 module.exports = {
-  postsPerPage: 20
+  postsPerPage: 10
   /* config options here */
 }

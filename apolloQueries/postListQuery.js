@@ -2,7 +2,7 @@ import { gql } from 'react-apollo'
 
 export default gql`
 query ($page: Int!, $pageSize: Int!) {
-  postsQuery(page: $page, pageSize: $pageSize) {
+  postsQuery: postsQuery(page: $page, pageSize: $pageSize) {
     count
     results {
       uuid: entityUuid

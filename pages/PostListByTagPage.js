@@ -1,32 +1,55 @@
 import Layout from '../components/Layout'
-import TagList from '../components/TagList'
+import PostList from '../components/PostList'
 import Loader from '../components/Loader'
 import initApollo from '../lib/initApollo'
-import allPostsQuery from '../apolloQueries/allPostsQuery'
+import postListByTagQuery from '../apolloQueries/postListByTagQuery'
+import tagByPathQuery from '../apolloQueries/tagByPathQuery'
 import config from '../next.config.js'
 
-const PostListByTagPage = ({ data }) => {
+const PostListByTagPage = ({ data, tag }) => {
   if (data.loading) {
     return <Loader />
   }
   return (
     <Layout>
       <div className="section">
-        <PostList data={data} />
+        <h1 className="title is-1">Articles classés "{tag.name}" </h1>
+        <PostList
+          posts={data.postsQuery.results}
+          postsTotal={data.postsQuery.count}
+          postsPerPage={config.postsPerPage}
+        />
       </div>
     </Layout>
   )
 }
 
-PostListByTagPage.getInitialProps = (params) => {
+PostListByTagPage.getInitialProps = async (params) => {
   const page = params.query.page ? params.query.page : 1
   const apollo = initApollo()
-  return apollo
-  .query({
-    query: allPostsQuery,
-    variables: { page: (page - 1), pageSize: config.postsPerPage }
+
+  // first get our tag object from its path
+  const tag = await apollo.query({
+    query: tagByPathQuery,
+    variables: {
+      path: '/' + params.query.slug
+    }
+  }).then(result => result.data.route.entity)
+
+  // now list all posts referencing this tag
+  const result = await apollo.query({
+    query: postListByTagQuery,
+    variables: {
+      page: (page - 1), // first page is "0" for our API
+      pageSize: config.postsPerPage,
+      tid: tag.id
+    }
   })
-  .then(r => ({data: r.data}))
+  
+  return {
+    tag,
+    data: result.data
+  }
 }
 
 export default PostListByTagPage

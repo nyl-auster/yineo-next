@@ -15,6 +15,7 @@ query route($path: String!) {
           }
         }
         tags: fieldTags {
+          id: entityId
           name: entityLabel
           url: entityUrl {
             alias

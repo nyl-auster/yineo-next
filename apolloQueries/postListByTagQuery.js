@@ -1,7 +1,7 @@
 import { gql } from 'react-apollo'
 export default gql`
-query ($tid: String!) {
-  postsQueryByTag(contextual_filter:{tid: $tid}) {
+query ($page: Int!, $pageSize: Int!, $tid: String!) {
+  postsQuery: postsQueryByTag(page: $page, pageSize: $pageSize, contextual_filter:{tid: $tid}) {
     count
     results {
       created: entityCreated
@@ -16,6 +16,7 @@ query ($tid: String!) {
           }
         }
         tags: fieldTags {
+          id: entityId,
           name: entityLabel
           url: entityUrl {
             alias

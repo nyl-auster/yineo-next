@@ -10,7 +10,7 @@ class Pagination extends React.Component {
   }
 
   getNumberOfPage () {
-    const total = Math.ceil(this.props.totalOfResults / this.props.resultsByPage)
+    const total = Math.ceil(this.props.resultsTotal / this.props.resultsPerPage)
     return total
   }
 
@@ -47,8 +47,8 @@ class Pagination extends React.Component {
 }
 
 Pagination.defaultProps = {
-  totalOfResults: null,
-  resultsByPage: 10,
+  resultsTotal: null,
+  resultsPerPage: 10,
   numberOfPage: null,
   currentPage: 1,
   route: '/',
