@@ -26,9 +26,9 @@ class PostListPage extends React.Component {
     )
   }
 
-  static async getInitialProps (url) {
-    const page = url.query.page ? url.query.page : 1
-    const tagSlug = url.query.tag ? url.query.tag : null
+  static async getInitialProps (context) {
+    const page = context.query.page ? context.query.page : 1
+    const tagSlug = context.query.tag ? context.query.tag : null
     const apollo = initApollo()
 
     // get our full tag object from API
@@ -59,7 +59,7 @@ class PostListPage extends React.Component {
     })
 
     return {
-      urlQuery: url.query,
+      urlQuery: context.query,
       tag,
       data: result.data
     }
