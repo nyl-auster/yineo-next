@@ -10,7 +10,6 @@ import { Link } from '../routes'
 class PostListPage extends React.Component {
 
   render () {
-    console.log(this.props)
     const data = this.props.data
     if (data.loading) {
       return <Loader />
@@ -27,15 +26,17 @@ class PostListPage extends React.Component {
             posts={data.postsQuery.results}
             postsTotal={data.postsQuery.count}
             postsPerPage={config.postsPerPage}
+            urlQuery={this.props.urlQuery}
           />
         </div>
       </Layout>
     )
   }
 
-  static async getInitialProps (params) {
-    const page = params.query.page ? params.query.page : 1
-    const tagSlug = params.query.tag ? params.query.tag : null
+  static async getInitialProps (url) {
+    console.log(url)
+    const page = url.query.page ? url.query.page : 1
+    const tagSlug = url.query.tag ? url.query.tag : null
     const apollo = initApollo()
 
     // get our full tag object from API
@@ -66,6 +67,7 @@ class PostListPage extends React.Component {
     })
 
     return {
+      urlQuery: url.query,
       tag,
       data: result.data
     }
